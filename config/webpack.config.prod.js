@@ -1,5 +1,5 @@
 'use strict';
-
+var path = require('path');
 var autoprefixer = require('autoprefixer');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -122,7 +122,12 @@ module.exports = {
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
-        include: paths.appSrc,
+        include: [
+          paths.appSrc,
+          path.resolve(paths.appNodeModules, 'eth-sig-util'),
+          path.resolve(paths.appNodeModules, 'ethereumjs-tx'),
+          path.resolve(paths.appNodeModules, 'web3-provider-engine')
+        ],
         loader: 'babel',
         
       },

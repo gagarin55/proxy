@@ -1,6 +1,7 @@
 {
   "name": "proxy",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "aphrodite": "^1.2.0",
@@ -59,7 +60,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "clean": "rm -rf build/"
   },
   "jest": {
     "collectCoverageFrom": [
