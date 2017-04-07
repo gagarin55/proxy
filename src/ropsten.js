@@ -7,16 +7,18 @@ import WalletSubprovider from 'web3-provider-engine/subproviders/wallet.js';
 import Web3Subprovider from 'web3-provider-engine/subproviders/web3.js';
 import Web3 from 'web3';
 import {toBuffer} from 'ethereumjs-util';
+import FilterSubprovider from 'web3-provider-engine/subproviders/filters.js';
+
 /**
  * Light wrapper to instantiate web3 from mnemonic phrase
  */
 export class Web3Util {
 
   static createInstance(wallet) {
-    console.log('HUI: '+wallet.getAddress());
     const providerUrl = 'https://testnet.infura.io'
 
     const engine = new ProviderEngine()
+    engine.addProvider(new FilterSubprovider())
     engine.addProvider(new WalletSubprovider(wallet, {}))
     engine.addProvider(new Web3Subprovider(new Web3.providers.HttpProvider(providerUrl)))
     engine.start() // Required by the provider engine.

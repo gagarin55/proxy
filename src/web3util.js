@@ -6,6 +6,9 @@ import { default as contract } from 'truffle-contract'
 import {Web3Util} from './ropsten';
 
 
+
+
+
 // export const web3 = new Web3()
 // web3.setProvider(new Web3.providers.HttpProvider('http://localhost:8545'))
 
